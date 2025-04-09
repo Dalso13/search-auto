@@ -66,6 +66,9 @@ export default {
           aria-expanded="false"
           aria-hidden="true"
         >
+          <li v-for="(a,i) in currentDatas" v-bind:key="i" class="auto-complete-list">
+            <AutoComplete v-bind:searchAutoData="a"/>
+          </li>
         </ul>
     </div>
 </template>
