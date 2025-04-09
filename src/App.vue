@@ -35,6 +35,9 @@ export default {
     classActive() {
       if (this.searchData.length > 0) this.classTag = "search-form active";
     },
+    onClickAutoComplete(data) {     
+      this.searchData = data
+    }
   },
 }
 
@@ -66,9 +69,11 @@ export default {
           aria-expanded="false"
           aria-hidden="true"
         >
-          <li v-for="(a,i) in currentDatas" v-bind:key="i" class="auto-complete-list">
-            <AutoComplete v-bind:searchAutoData="a"/>
-          </li>
+            <AutoComplete 
+              v-for="(a,i) in currentDatas" v-bind:key="i"
+              v-bind:searchAutoData="a" 
+              @onClickAutoComplete="onClickAutoComplete"
+            />
         </ul>
     </div>
 </template>
